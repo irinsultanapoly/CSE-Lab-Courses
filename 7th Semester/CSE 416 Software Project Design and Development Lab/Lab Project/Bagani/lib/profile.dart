@@ -33,7 +33,7 @@ class _ProfileState extends State<Profile> {
 
               // User Name
               const Text(
-                'John Doe', // Replace with user's actual name
+                'Irin sultana', // Replace with user's actual name
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
 

@@ -10,8 +10,8 @@ class Authentication extends StatefulWidget {
 
 class _AuthenticationState extends State<Authentication> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController(text: 'abc@abc.com');
-  final _passwordController = TextEditingController(text: '1234567890');
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   // Clean up controllers when the widget is disposed
   @override
@@ -21,23 +21,11 @@ class _AuthenticationState extends State<Authentication> {
     super.dispose();
   }
 
-  // Simulate login logic
-  void _login() {
-    if (_formKey.currentState!.validate()) {
-      Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => const Profile())
-      );
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Logged in...')),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My App Login'),
+        title: const Text('Bagani Login'),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -102,7 +90,16 @@ class _AuthenticationState extends State<Authentication> {
 
                 // Login button
                 ElevatedButton(
-                  onPressed: _login,
+                  onPressed: (){
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => const Profile())
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Logged in...')),
+                      );
+                    }
+                  },
                   child: const Text('Login'),
                 ),
               ],
