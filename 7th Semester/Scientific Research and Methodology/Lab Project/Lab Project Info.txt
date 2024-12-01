@@ -1,0 +1,264 @@
+% Random numbers provided (simulating random selections for patients)
+random_numbers = [40, 82, 11, 34, 25, 66, 17, 79];
+
+% Define the time each patient arrives
+arrival_times = 0:30:210; % Patients arrive every 30 minutes, 4 hours window (08:00 am to 12:00 pm)
+
+% Initialize variables to track the total waiting time, idle time, and patient data
+waiting_times = zeros(1, length(random_numbers));
+start_times = zeros(1, length(random_numbers));
+end_times = zeros(1, length(random_numbers));
+idle_times = 0;
+
+% Loop through each patient
+for i = 1:length(random_numbers)
+    % Get the category based on random number
+    rand_num = random_numbers(i);
+    if rand_num <= 39
+        category = 1; % Filling (45 minutes)
+    elseif rand_num <= 54
+        category = 2; % Crown (60 minutes)
+    elseif rand_num <= 69
+        category = 3; % Cleaning (15 minutes)
+    elseif rand_num <= 79
+        category = 4; % Extracting (45 minutes)
+    else
+        category = 5; % Checkup (15 minutes)
+    end
+    
+    % Time required for this patient based on category
+    time_needed = times(category);
+    
+    % Determine start time for this patient
+    if i == 1
+        start_times(i) = arrival_times(i); % First patient starts at arrival time
+    else
+        % The dentist starts when the previous patient is done, or at the arrival time if idle
+        start_times(i) = max(arrival_times(i), end_times(i-1));
+    end
+    
+    % Calculate the end time for this patient
+    end_times(i) = start_times(i) + time_needed;
+    
+    % Calculate waiting time for the patient
+    waiting_times(i) = start_times(i) - arrival_times(i);
+    
+    % Calculate idle time if there is any gap between the previous patient and this one
+    if i > 1
+        idle_time = arrival_times(i) - end_times(i-1);
+        if idle_time > 0
+            idle_times = idle_times + idle_time;
+        end
+    end
+end
+
+% Calculate the average waiting time
+average_waiting_time = mean(waiting_times);
+
+% Output the results
+fprintf('Average Waiting Time: %.2f minutes\n', average_waiting_time);
+fprintf('Total Idle Time: %.2f minutes\n', idle_times);
+
+% Display patient-wise details for transparency
+fprintf('\nPatient Details:\n');
+fprintf('Patient No.\tArrival Time\tStart Time\tEnd Time\tWaiting Time\n');
+for i = 1:length(random_numbers)
+    fprintf('%d\t\t%d\t\t%d\t\t%d\t\t%d\n', i, arrival_times(i), start_times(i), end_times(i), waiting_times(i));
+end
+----------------------------------------------------------------------111111111111111111111111111111
+%montecarlo (inventory)
+% Number of simulations
+num_simulations = 10000;
+
+% Historical on-hand inventory levels and probabilities
+inventory_levels = [15, 25, 35, 40, 42, 55];
+probabilities = [0.12, 0.35, 0.20, 0.06, 0.02, 0.25];
+
+% Cost parameters
+ordering_cost = 50;  % $ per order
+unit_cost = 4;       % $ per product
+holding_cost = 1;    % $ per unit per week
+selling_price = 12;  % $ per product
+
+% Max inventory limit
+max_inventory = 100;
+
+% Store the results of each simulation
+total_costs = zeros(num_simulations, 1);
+total_revenues = zeros(num_simulations, 1);
+total_profit = zeros(num_simulations, 1);
+
+% Monte Carlo simulation loop
+for i = 1:num_simulations
+    % Randomly select on-hand inventory based on the given probabilities
+    selected_inventory = randsample(inventory_levels, 1, true, probabilities);
+    
+    % Calculate the order quantity
+    order_quantity = max_inventory - selected_inventory;
+    if order_quantity < 0
+        order_quantity = 0; % No order if inventory is already at or above 100
+    end
+    
+    % Calculate the costs
+    order_cost = ordering_cost;  % Always pay $50 to place an order
+    unit_order_cost = order_quantity * unit_cost; % Cost for the ordered units
+    holding_cost_total = (max_inventory - selected_inventory - order_quantity) * holding_cost; % Holding cost for unsold units
+    
+    % Calculate the revenue from selling the products
+    sales_revenue = min(selected_inventory + order_quantity, max_inventory) * selling_price; % Revenue from sold products
+    
+    % Total cost and profit for this simulation
+    total_cost = order_cost + unit_order_cost + holding_cost_total;
+    total_profit_sim = sales_revenue - total_cost;
+    
+    % Store the results for later analysis
+    total_costs(i) = total_cost;
+    total_revenues(i) = sales_revenue;
+    total_profit(i) = total_profit_sim;
+end
+
+% Calculate average results
+avg_cost = mean(total_costs);
+avg_revenue = mean(total_revenues);
+avg_profit = mean(total_profit);
+
+% Display results
+fprintf('Average Cost: $%.2f\n', avg_cost);
+fprintf('Average Revenue: $%.2f\n', avg_revenue);
+fprintf('Average Profit: $%.2f\n', avg_profit);
+
+% Optional: Histogram of profit distribution
+figure;
+histogram(total_profit, 50);
+title('Distribution of Total Profit');
+xlabel('Profit');
+ylabel('Frequency');
+----------------------------------------------22222222222222222222222222simulation a %montecarlo_pi
+% Number of random points to generate
+N = 1000000;
+
+% Generate N random points in the unit square
+x = rand(1, N);
+y = rand(1, N);
+
+% Count how many points fall inside the unit circle
+inside_circle = (x.^2 + y.^2) <= 1;
+
+% Estimate Pi using the ratio of points inside the circle
+estimated_pi = 4 * sum(inside_circle) / N;
+
+% Display the result
+fprintf('Estimated value of Pi: %.6f\n', estimated_pi);
+
+% Plot the points
+figure;
+hold on;
+plot(x(inside_circle), y(inside_circle), 'go');  % Points inside the circle (green)
+plot(x(~inside_circle), y(~inside_circle), 'ro'); % Points outside the circle (red)
+xlabel('x');
+ylabel('y');
+title('Monte Carlo Simulation to Estimate Pi');
+axis equal;
+grid on;
+hold off;
+---------------------------------------333333333333333333
+%ks(one sample)_temprature
+% One-Sample Kolmogorov-Smirnov Test (K-S Test)
+temprature = [15;17;16;14;18;20;19;15;21;22]
+
+temp_1 = temprature(:, 1);
+
+%mean_val = 80
+%std_dev = 5
+
+%x = (exam_scores - mean_val)/std_dev;
+
+[h, p, ksstat, cv] = kstest(temp_1)%(x)
+if h == 0
+    disp('Fail to reject the null hypothesis: Data follows a normal distribution.');
+else
+    disp('Reject the null hypothesis: Data does not follow a normal distribution.');
+end
+
+
+% Display test results
+disp(['Test decision (h): ', num2str(h)]);
+disp(['p-value: ', num2str(p)]);
+disp(['KS statistic: ', num2str(ksstat)]);
+disp(['Critical value: ', num2str(cv)]);
+% Plot the empirical CDF vs the standard normal CDF
+figure; % Ensure a new figure window is created
+[f,x_values] = ecdf(temp_1); % Compute the empirical CDF
+F = plot(x_values, f, 'b', 'LineWidth', 2); % Plot empirical CDF in blue
+hold on;
+% Compute and plot the standard normal CDF
+G = plot(x_values, normcdf(x_values, 0, 1), 'r-', 'LineWidth', 2); % Plot
+standard normal CDF in red
+% Add legends and labels
+legend([F G], 'Empirical CDF', 'Standard Normal CDF', 'Location', 'SE');
+xlabel('Scaled Exam Scores');
+ylabel('Cumulative Probability');
+title('K-S Test: Empirical vs Normal CDF');
+% Ensure the figure is displayed
+hold off;
+
+----------------------------------444444444444444444444
+%k-s (two sample with randn)
+x1 = randn(100, 1)
+x2 = randn(100, 1)
+
+[h, p] = kstest2(x1, x2);
+
+if h == 0
+    disp('Fail to reject the null hypothesis: The two samples come from the same distribution.');
+else
+    disp('Reject the null hypothesis: The two samples come from different distributions.');
+end
+--------------------------------5555555555555555555555555
+% One-Sample Kolmogorov-Smirnov Test (K-S Test)
+student_data = [75, 80, 78, 85;
+                85, 90, 88, 89;
+                70, 65, 75, 72;
+                82, 78, 84, 80;
+                90, 92, 87, 89;
+                77, 75, 79, 81;
+                65, 68, 70, 72;
+                88, 85, 87, 90;
+                74, 76, 78, 80;
+                79, 80, 82, 85]
+
+exam_scores = student_data(:, 1);
+
+mean_val = 80
+std_dev = 5
+
+x = (exam_scores - mean_val)/std_dev;
+
+[h, p, ksstat, cv] = kstest(x)
+if h == 0
+    disp('Fail to reject the null hypothesis: Data follows a normal distribution.');
+else
+    disp('Reject the null hypothesis: Data does not follow a normal distribution.');
+end
+
+
+% Display test results
+disp(['Test decision (h): ', num2str(h)]);
+disp(['p-value: ', num2str(p)]);
+disp(['KS statistic: ', num2str(ksstat)]);
+disp(['Critical value: ', num2str(cv)]);
+% Plot the empirical CDF vs the standard normal CDF
+figure; % Ensure a new figure window is created
+[f,x_values] = ecdf(x); % Compute the empirical CDF
+F = plot(x_values, f, 'b', 'LineWidth', 2); % Plot empirical CDF in blue
+hold on;
+% Compute and plot the standard normal CDF
+G = plot(x_values, normcdf(x_values, 0, 1), 'r-', 'LineWidth', 2); % Plot
+standard normal CDF in red
+% Add legends and labels
+legend([F G], 'Empirical CDF', 'Standard Normal CDF', 'Location', 'SE');
+xlabel('Scaled Exam Scores');
+ylabel('Cumulative Probability');
+title('K-S Test: Empirical vs Normal CDF');
+% Ensure the figure is displayed
+hold off;
