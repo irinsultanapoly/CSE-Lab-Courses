@@ -1,92 +1,79 @@
 clc;
 clear;
 
-% Define timing intervals for traffic lights (seconds)
-greenTime = 15;   % Green light duration
-yellowTime = 5;   % Yellow light duration
-redTime = greenTime + yellowTime; % Total cycle time for one configuration
+greenTime = 15;   
+yellowTime = 5;  
+redTime = greenTime + yellowTime; 
 
-% Define simulation time (total time in seconds)
-cycleTime = 4 * (greenTime + yellowTime); % One full cycle for all directions
-simulationTime = 2 * cycleTime; % Simulate 2 complete cycles
+cycleTime = 4 * (greenTime + yellowTime); 
+simulationTime = 2 * cycleTime; 
 
-% Initialize figure for visualization
 figure;
 axis([0 14 0 14]);
 hold on;
 
-% Draw intersection layout
-rectangle('Position', [5, 5, 4, 4], 'FaceColor', [0.9 0.9 0.9]); % Intersection
+rectangle('Position', [5, 5, 4, 4], 'FaceColor', [0.9 0.9 0.9]);
 text(6.5, 13, 'North', 'FontSize', 12);
 text(6.5, 1, 'South', 'FontSize', 12);
 text(1, 7, 'West', 'FontSize', 12);
 text(13, 7, 'East', 'FontSize', 12);
 
-% Traffic light positions (with dividing line offsets)
-% North
-NL = [8, 10.5];  % North Left
-NR = [6, 10.5];  % North Right
-% South
-SL = [6, 3.5];   % South Left
-SR = [8, 3.5];   % South Right
-% East
-EL = [10.5, 6];  % East Left
-ER = [10.5, 8];  % East Right
-% West
-WL = [3.5, 8];   % West Left
-WR = [3.5, 6];   % West Right
+NL = [8, 10.5];  
+NR = [6, 10.5];  
 
-% Simulation loop
+SL = [6, 3.5];  
+SR = [8, 3.5]; 
+
+EL = [10.5, 6];  
+ER = [10.5, 8];  
+
+WL = [3.5, 8];   
+WR = [3.5, 6];  
+
 currentTime = 0;
 while currentTime < simulationTime
-    % Determine which lights are green based on the cycle
     cyclePhase = mod(currentTime, cycleTime);
 
-    % Initialize all lights as red
     NL_Color = 'red'; NR_Color = 'red';
     SL_Color = 'red'; SR_Color = 'red';
     EL_Color = 'red'; ER_Color = 'red';
     WL_Color = 'red'; WR_Color = 'red';
-    activeLight = []; % To store the currently active light for highlighting
+    activeLight = []; 
 
-    if cyclePhase < greenTime % Phase 1: EL Green
+    if cyclePhase < greenTime
         EL_Color = 'green'; SR_Color = 'green'; WR_Color = 'green'; NR_Color = 'green';
-        activeLight = EL; % Highlight EL
-    elseif cyclePhase < greenTime + yellowTime % Phase 1: Yellow transition
+        activeLight = EL; 
+    elseif cyclePhase < greenTime + yellowTime 
         EL_Color = 'yellow'; SR_Color = 'yellow'; WR_Color = 'yellow'; NR_Color = 'yellow';
-        activeLight = EL; % Highlight EL
-    elseif cyclePhase < 2 * greenTime + yellowTime % Phase 2: SL Green
+        activeLight = EL;
+    elseif cyclePhase < 2 * greenTime + yellowTime 
         SL_Color = 'green'; WR_Color = 'green'; NR_Color = 'green'; ER_Color = 'green';
-        activeLight = SL; % Highlight SL
-    elseif cyclePhase < 2 * (greenTime + yellowTime) % Phase 2: Yellow transition
+        activeLight = SL;
+    elseif cyclePhase < 2 * (greenTime + yellowTime)
         SL_Color = 'yellow'; WR_Color = 'yellow'; NR_Color = 'yellow'; ER_Color = 'yellow';
-        activeLight = SL; % Highlight SL
-    elseif cyclePhase < 3 * greenTime + 2 * yellowTime % Phase 3: WL Green
+        activeLight = SL; 
+    elseif cyclePhase < 3 * greenTime + 2 * yellowTime 
         WL_Color = 'green'; NR_Color = 'green'; ER_Color = 'green'; SR_Color = 'green';
-        activeLight = WL; % Highlight WL
-    elseif cyclePhase < 3 * (greenTime + yellowTime) % Phase 3: Yellow transition
+        activeLight = WL; 
+    elseif cyclePhase < 3 * (greenTime + yellowTime) 
         WL_Color = 'yellow'; NR_Color = 'yellow'; ER_Color = 'yellow'; SR_Color = 'yellow';
-        activeLight = WL; % Highlight WL
-    else % Phase 4: NL Green
+        activeLight = WL; 
+    else 
         NL_Color = 'green'; ER_Color = 'green'; SR_Color = 'green'; WR_Color = 'green';
-        activeLight = NL; % Highlight NL
+        activeLight = NL; 
     end
 
-    % Update lights and visuals
     cla;
-    rectangle('Position', [5, 5, 4, 4], 'FaceColor', [0.9 0.9 0.9]); % Intersection
+    rectangle('Position', [5, 5, 4, 4], 'FaceColor', [0.9 0.9 0.9]); 
     hold on;
 
-    % Draw divider lines for Left and Right lights
-    line([7, 7], [0, 14], 'Color', 'black', 'LineStyle', '--'); % Vertical divider
-    line([0, 14], [7, 7], 'Color', 'black', 'LineStyle', '--'); % Horizontal divider
+    line([7, 7], [0, 14], 'Color', 'black', 'LineStyle', '--'); 
+    line([0, 14], [7, 7], 'Color', 'black', 'LineStyle', '--'); 
 
-    % Highlight the active light with a black outline
     if ~isempty(activeLight)
         plot(activeLight(1), activeLight(2), 'o', 'MarkerSize', 24, 'MarkerFaceColor', 'black', 'MarkerEdgeColor', 'black');
     end
 
-    % Plot traffic lights
     plot(NL(1), NL(2), 'o', 'MarkerSize', 20, 'MarkerFaceColor', NL_Color);
     plot(NR(1), NR(2), 'o', 'MarkerSize', 20, 'MarkerFaceColor', NR_Color);
     plot(SL(1), SL(2), 'o', 'MarkerSize', 20, 'MarkerFaceColor', SL_Color);
@@ -96,8 +83,7 @@ while currentTime < simulationTime
     plot(WL(1), WL(2), 'o', 'MarkerSize', 20, 'MarkerFaceColor', WL_Color);
     plot(WR(1), WR(2), 'o', 'MarkerSize', 20, 'MarkerFaceColor', WR_Color);
 
-    % Display current time
     title(['Simulation Time: ' num2str(currentTime) ' seconds']);
-    pause(1); % Simulate one second delay
+    pause(1); 
     currentTime = currentTime + 1;
 end
