@@ -41,8 +41,8 @@ int main() {
     printf("Answer the following questions by selecting the correct option number.\n\n");
 
     for (int i = 0; i < 5; i++) {
-        int randomIndex;
 
+        int randomIndex;
         do {
             randomIndex = rand() % totalQuestions;
             int alreadyAsked = 0;
