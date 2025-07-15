@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "379042498017",
+    "firebase_url": "https://bagani-bd-default-rtdb.firebaseio.com",
+    "project_id": "bagani-bd",
+    "storage_bucket": "bagani-bd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379042498017:android:e1c41029f76a02df0e3ea0",
+        "android_client_info": {
+          "package_name": "com.bagani.bagani"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZS9VYuB3tUBKv6MsJc3LCRitMg5STmGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

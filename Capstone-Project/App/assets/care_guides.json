@@ -1,0 +1,373 @@
+{
+    "categories": [
+        {
+            "id": "houseplants",
+            "name": "Houseplants",
+            "icon": "home_rounded",
+            "description": "Indoor plants for home decoration and air purification",
+            "guides": [
+                {
+                    "id": "monstera",
+                    "title": "Monstera Deliciosa (Swiss Cheese Plant)",
+                    "image": "monstera.jpg",
+                    "difficulty": "Easy",
+                    "light": "Bright indirect light",
+                    "water": "Water when top 2-3 inches of soil is dry",
+                    "temperature": "65-85°F (18-29°C)",
+                    "humidity": "60-80%",
+                    "soil": "Well-draining potting mix",
+                    "fertilizer": "Monthly during growing season",
+                    "care_tips": [
+                        "Wipe leaves regularly to remove dust",
+                        "Provide support for climbing stems",
+                        "Prune to control size and shape",
+                        "Repot every 2-3 years"
+                    ],
+                    "common_issues": [
+                        "Yellow leaves: Overwatering or poor drainage",
+                        "Brown tips: Low humidity or underwatering",
+                        "No fenestrations: Insufficient light"
+                    ]
+                },
+                {
+                    "id": "snake_plant",
+                    "title": "Snake Plant (Sansevieria)",
+                    "image": "snake_plant.jpg",
+                    "difficulty": "Very Easy",
+                    "light": "Low to bright indirect light",
+                    "water": "Water sparingly, let soil dry completely",
+                    "temperature": "60-85°F (16-29°C)",
+                    "humidity": "30-50%",
+                    "soil": "Well-draining cactus mix",
+                    "fertilizer": "Every 2-3 months during growing season",
+                    "care_tips": [
+                        "Tolerates neglect well",
+                        "Perfect for beginners",
+                        "Excellent air purifier",
+                        "Avoid overwatering"
+                    ],
+                    "common_issues": [
+                        "Root rot: Overwatering",
+                        "Soft leaves: Too much water",
+                        "Slow growth: Low light conditions"
+                    ]
+                },
+                {
+                    "id": "pothos",
+                    "title": "Pothos (Epipremnum aureum)",
+                    "image": "pothos.jpg",
+                    "difficulty": "Easy",
+                    "light": "Low to bright indirect light",
+                    "water": "Water when top inch of soil is dry",
+                    "temperature": "65-85°F (18-29°C)",
+                    "humidity": "40-60%",
+                    "soil": "Well-draining potting mix",
+                    "fertilizer": "Monthly during spring and summer",
+                    "care_tips": [
+                        "Great trailing plant for hanging baskets",
+                        "Easy to propagate from cuttings",
+                        "Tolerates low light conditions",
+                        "Prune to encourage bushier growth"
+                    ],
+                    "common_issues": [
+                        "Yellow leaves: Overwatering",
+                        "Leggy growth: Insufficient light",
+                        "Brown tips: Low humidity"
+                    ]
+                },
+                {
+                    "id": "ficus",
+                    "title": "Fiddle Leaf Fig (Ficus lyrata)",
+                    "image": "ficus.jpg",
+                    "difficulty": "Moderate",
+                    "light": "Bright indirect light",
+                    "water": "Water when top 2-3 inches of soil is dry",
+                    "temperature": "65-75°F (18-24°C)",
+                    "humidity": "50-70%",
+                    "soil": "Well-draining potting mix",
+                    "fertilizer": "Monthly during growing season",
+                    "care_tips": [
+                        "Keep away from drafts",
+                        "Rotate regularly for even growth",
+                        "Wipe leaves with damp cloth",
+                        "Avoid moving frequently"
+                    ],
+                    "common_issues": [
+                        "Leaf drop: Sudden environmental changes",
+                        "Brown spots: Overwatering or fungal issues",
+                        "Slow growth: Insufficient light"
+                    ]
+                },
+                {
+                    "id": "zz_plant",
+                    "title": "ZZ Plant (Zamioculcas zamiifolia)",
+                    "image": "zz_plant.jpg",
+                    "difficulty": "Very Easy",
+                    "light": "Low to bright indirect light",
+                    "water": "Water sparingly, let soil dry completely",
+                    "temperature": "65-75°F (18-24°C)",
+                    "humidity": "30-50%",
+                    "soil": "Well-draining potting mix",
+                    "fertilizer": "Every 2-3 months during growing season",
+                    "care_tips": [
+                        "Drought-tolerant plant",
+                        "Perfect for low-light areas",
+                        "Slow-growing but hardy",
+                        "Toxic to pets if ingested"
+                    ],
+                    "common_issues": [
+                        "Yellow leaves: Overwatering",
+                        "Stunted growth: Too much water",
+                        "Leaf drop: Sudden temperature changes"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "vegetables",
+            "name": "Vegetables",
+            "icon": "eco_rounded",
+            "description": "Edible plants for home gardening and fresh produce",
+            "guides": [
+                {
+                    "id": "tomatoes",
+                    "title": "Tomatoes",
+                    "image": "tomatoes.jpg",
+                    "difficulty": "Moderate",
+                    "light": "Full sun (6-8 hours daily)",
+                    "water": "Keep soil consistently moist",
+                    "temperature": "65-85°F (18-29°C)",
+                    "humidity": "40-70%",
+                    "soil": "Rich, well-draining soil",
+                    "fertilizer": "Every 2-3 weeks with balanced fertilizer",
+                    "care_tips": [
+                        "Provide support for indeterminate varieties",
+                        "Prune suckers for better fruit production",
+                        "Mulch to retain moisture",
+                        "Plant deep for stronger roots"
+                    ],
+                    "common_issues": [
+                        "Blossom end rot: Calcium deficiency",
+                        "Cracking: Inconsistent watering",
+                        "Early blight: Fungal disease, improve air circulation"
+                    ]
+                },
+                {
+                    "id": "lettuce",
+                    "title": "Lettuce",
+                    "image": "lettuce.jpg",
+                    "difficulty": "Easy",
+                    "light": "Partial to full sun",
+                    "water": "Keep soil consistently moist",
+                    "temperature": "45-75°F (7-24°C)",
+                    "humidity": "40-60%",
+                    "soil": "Rich, well-draining soil",
+                    "fertilizer": "Light feeding every 2-3 weeks",
+                    "care_tips": [
+                        "Harvest outer leaves for continuous growth",
+                        "Plant in cool weather",
+                        "Provide shade in hot weather",
+                        "Space plants properly for air circulation"
+                    ],
+                    "common_issues": [
+                        "Bitter taste: Hot weather or bolting",
+                        "Slugs and snails: Use barriers or organic controls",
+                        "Tip burn: Calcium deficiency or inconsistent watering"
+                    ]
+                },
+                {
+                    "id": "carrots",
+                    "title": "Carrots",
+                    "image": "carrots.jpg",
+                    "difficulty": "Easy",
+                    "light": "Full sun",
+                    "water": "Keep soil consistently moist",
+                    "temperature": "60-75°F (16-24°C)",
+                    "humidity": "40-60%",
+                    "soil": "Loose, sandy soil without rocks",
+                    "fertilizer": "Light feeding at planting",
+                    "care_tips": [
+                        "Thin seedlings to prevent crowding",
+                        "Loose soil is essential for straight roots",
+                        "Harvest when shoulders are visible",
+                        "Succession plant for continuous harvest"
+                    ],
+                    "common_issues": [
+                        "Forked roots: Rocky or compacted soil",
+                        "Green shoulders: Exposed to sunlight",
+                        "Carrot rust fly: Use row covers"
+                    ]
+                },
+                {
+                    "id": "peppers",
+                    "title": "Bell Peppers",
+                    "image": "peppers.jpg",
+                    "difficulty": "Moderate",
+                    "light": "Full sun",
+                    "water": "Keep soil consistently moist",
+                    "temperature": "70-85°F (21-29°C)",
+                    "humidity": "40-70%",
+                    "soil": "Rich, well-draining soil",
+                    "fertilizer": "Every 2-3 weeks with balanced fertilizer",
+                    "care_tips": [
+                        "Provide support for heavy fruit",
+                        "Pinch early flowers for stronger plants",
+                        "Harvest when fully colored",
+                        "Plant after soil warms"
+                    ],
+                    "common_issues": [
+                        "Blossom end rot: Calcium deficiency",
+                        "Sunscald: Provide shade for developing fruit",
+                        "Poor fruit set: High temperatures or low humidity"
+                    ]
+                },
+                {
+                    "id": "cucumbers",
+                    "title": "Cucumbers",
+                    "image": "cucumbers.jpg",
+                    "difficulty": "Easy",
+                    "light": "Full sun",
+                    "water": "Keep soil consistently moist",
+                    "temperature": "70-85°F (21-29°C)",
+                    "humidity": "40-70%",
+                    "soil": "Rich, well-draining soil",
+                    "fertilizer": "Every 2-3 weeks with balanced fertilizer",
+                    "care_tips": [
+                        "Provide trellis for vining varieties",
+                        "Harvest regularly to encourage production",
+                        "Plant in hills or rows",
+                        "Mulch to retain moisture"
+                    ],
+                    "common_issues": [
+                        "Bitter fruit: Stress from heat or drought",
+                        "Powdery mildew: Improve air circulation",
+                        "Misshapen fruit: Poor pollination"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "flowers",
+            "name": "Flowers",
+            "icon": "local_florist_rounded",
+            "description": "Ornamental flowering plants for beauty and pollinators",
+            "guides": [
+                {
+                    "id": "roses",
+                    "title": "Roses",
+                    "image": "roses.jpg",
+                    "difficulty": "Moderate",
+                    "light": "Full sun (6-8 hours daily)",
+                    "water": "Deep watering 2-3 times per week",
+                    "temperature": "60-80°F (16-27°C)",
+                    "humidity": "40-60%",
+                    "soil": "Rich, well-draining soil",
+                    "fertilizer": "Monthly during growing season",
+                    "care_tips": [
+                        "Prune in early spring",
+                        "Deadhead spent flowers",
+                        "Provide good air circulation",
+                        "Mulch around base"
+                    ],
+                    "common_issues": [
+                        "Black spot: Fungal disease, improve air circulation",
+                        "Aphids: Use insecticidal soap",
+                        "Powdery mildew: Avoid overhead watering"
+                    ]
+                },
+                {
+                    "id": "sunflowers",
+                    "title": "Sunflowers",
+                    "image": "sunflowers.jpg",
+                    "difficulty": "Easy",
+                    "light": "Full sun",
+                    "water": "Regular watering, drought-tolerant once established",
+                    "temperature": "70-85°F (21-29°C)",
+                    "humidity": "30-60%",
+                    "soil": "Well-draining soil",
+                    "fertilizer": "Light feeding at planting",
+                    "care_tips": [
+                        "Plant in full sun",
+                        "Provide support for tall varieties",
+                        "Harvest seeds when heads droop",
+                        "Attract pollinators and birds"
+                    ],
+                    "common_issues": [
+                        "Stunted growth: Poor soil or insufficient light",
+                        "Birds eating seeds: Use netting if needed",
+                        "Root rot: Overwatering or poor drainage"
+                    ]
+                },
+                {
+                    "id": "marigolds",
+                    "title": "Marigolds",
+                    "image": "marigolds.jpg",
+                    "difficulty": "Very Easy",
+                    "light": "Full sun to partial shade",
+                    "water": "Moderate watering",
+                    "temperature": "60-80°F (16-27°C)",
+                    "humidity": "30-60%",
+                    "soil": "Well-draining soil",
+                    "fertilizer": "Light feeding monthly",
+                    "care_tips": [
+                        "Deadhead for continuous blooming",
+                        "Plant as companion plants",
+                        "Drought-tolerant once established",
+                        "Natural pest repellent"
+                    ],
+                    "common_issues": [
+                        "Leggy growth: Insufficient light",
+                        "Powdery mildew: Improve air circulation",
+                        "Root rot: Overwatering"
+                    ]
+                },
+                {
+                    "id": "lavender",
+                    "title": "Lavender",
+                    "image": "lavender.jpg",
+                    "difficulty": "Easy",
+                    "light": "Full sun",
+                    "water": "Drought-tolerant, water sparingly",
+                    "temperature": "60-75°F (16-24°C)",
+                    "humidity": "30-50%",
+                    "soil": "Well-draining, alkaline soil",
+                    "fertilizer": "Minimal feeding required",
+                    "care_tips": [
+                        "Plant in well-draining soil",
+                        "Prune after flowering",
+                        "Avoid overwatering",
+                        "Harvest for fragrance and crafts"
+                    ],
+                    "common_issues": [
+                        "Root rot: Overwatering or poor drainage",
+                        "Leggy growth: Insufficient light",
+                        "Winter damage: Protect in cold climates"
+                    ]
+                },
+                {
+                    "id": "zinnias",
+                    "title": "Zinnias",
+                    "image": "zinnias.jpg",
+                    "difficulty": "Very Easy",
+                    "light": "Full sun",
+                    "water": "Moderate watering",
+                    "temperature": "70-85°F (21-29°C)",
+                    "humidity": "30-60%",
+                    "soil": "Well-draining soil",
+                    "fertilizer": "Light feeding monthly",
+                    "care_tips": [
+                        "Deadhead for continuous blooming",
+                        "Attract butterflies and pollinators",
+                        "Heat and drought tolerant",
+                        "Great for cutting gardens"
+                    ],
+                    "common_issues": [
+                        "Powdery mildew: Improve air circulation",
+                        "Aphids: Use insecticidal soap",
+                        "Leggy growth: Insufficient light"
+                    ]
+                }
+            ]
+        }
+    ]
+}
